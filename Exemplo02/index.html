@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARROW FUNCTION</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        form {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calcular Soma</h1>
+    <form id="form">
+        <label for="number1">Variável 01:</label>
+        <input type="number" name="number1" id="number1">
+        <label for="number2">Variável 02:</label>
+        <input type="number" name="number2" id="number2">
+        <button type="button" onclick="soma()">Calcular</button>
+    </form>
+    <h2>RESULTADO:<span id="result"></span></h2>
+    </div>
+    <script>
+        //substitui function somar(){}//
+        const soma = () => {
+            const number1 = parseFloat(document.getElementById('number1').value);
+            const number2 = parseFloat(document.getElementById('number2').value);
+            const resultado = number1 + number2;
+            document.getElementById('result').textContent = resultado;
+        }        
+    </script>
+</body>
+</html>

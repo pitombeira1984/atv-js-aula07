@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contar String</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        form {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contar Tamanho da String</h1>
+    <form id="form">
+        <label for="text">Digite uma Palavra:</label>
+        <input type="text" name="text" id="text">
+        <button type="button" onclick="contarTamanho()">Calcular</button>
+    </form>
+    <h2>Resultado:<span id="result"></span></h2>
+    </div>
+    <script>
+        const contarTamanho = () =>{
+
+            const text = document.getElementById('text').value;
+
+            document.getElementById('result').textContent = text.length;
+
+        }
+    </script>    
+</body>
+</html>

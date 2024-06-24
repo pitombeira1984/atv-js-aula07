@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNÇÕES DE CALLBACK_CONVERÇÃO TEMPERATURA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        form {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Converção Temperatura</h1>
+    <form id="form">
+        <label for="temp">Temperatura Celsius (C)</label>
+        <input type="number" name="temp" id="temp">
+        <label for="number2">Selecione a Escala de Temperatura:</label>
+        <select name="escala" id="escala">
+            <option value="kelvin">Kelvin</option>
+            <option value="fahrenheit">Fahrenheit</option>
+        </select>
+        <button type="button" onclick="handleClick()">Calcular</button>
+    </form>
+    <h2>RESULTADO:<span id="result"></span></h2>
+    </div>
+    <script>
+        // Função de conversão de temperatura com callback
+        const converterTemperatura = (celsius, escala, callback) => {
+            let resultado;
+            switch(escala) {
+                case "kelvin":
+                    // Converte Celsius para Kelvin
+                    resultado = celsius + 273.15;
+                    callback(resultado);
+                    break;
+                case "fahrenheit":
+                    // Converte Celsius para Fahrenheit
+                    resultado = (celsius * 9/5) + 32;
+                    callback(resultado);
+                    break;
+                default:
+                    alert('Operação Inválida!');
+                    return;
+            }
+        }
+
+        // Função para exibir o resultado na página
+        const displayResult = (resultado) => {
+            document.getElementById('result').textContent = resultado;
+        }
+
+        // Função que é chamada quando o botão é clicado
+        const handleClick = () => {
+            const celsius = parseFloat(document.getElementById('temp').value);
+            const escala = document.getElementById('escala').value;
+            // Chama a função de conversão com os valores obtidos
+            converterTemperatura(celsius, escala, displayResult);
+        }
+    </script>
+</body>
+</html>
